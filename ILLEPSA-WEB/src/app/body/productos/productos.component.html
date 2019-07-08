@@ -1,3 +1,62 @@
-<p>
-  productos works!
-</p>
+<body>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h1 style="text-align: center">
+        Productos
+      </h1>
+    </div>
+    <div class="panel-body">
+      <!--LICORES-->
+      <p-carousel headerText="Licores" [value]="licores">
+        <ng-template let-licor pTemplate="item">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 style="text-align: center; font-weight: bold">{{licor.nombre}}</h4>
+              </div>
+              <div class="panel-body">
+                <div class="text-center">
+                    <img src="assets/images/productos/{{licor.imagen}}" height="200px">
+                </div>
+                <br>
+                  <div class="row">
+                      <div class="col-md-6">
+                        <p class="text-right"> <strong> Precio:</strong></p>
+                      </div>
+                      <div class="col-md-6">
+                        <p>$ {{licor.precio}}</p>
+                      </div>
+                  </div>
+              </div>
+            </div>
+        </ng-template>
+      </p-carousel>
+      <br>
+      <br>
+      <!--PERFUMES-->
+      <p-carousel headerText="Perfumes" [value]="perfumes">
+          <ng-template let-perfume pTemplate="item">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 style="text-align: center; font-weight: bold">{{perfume.nombre}}</h4>
+                </div>
+                <div class="panel-body">
+                  <div class="text-center">
+                      <img src="assets/images/productos/{{perfume.imagen}}" height="200px">
+                  </div>
+                  <br>
+                    <div class="row">
+                        <div class="col-md-6">
+                          <p class="text-right"> <strong> Precio:</strong></p>
+                        </div>
+                        <div class="col-md-6">
+                          <p>$ {{perfume.precio}}</p>
+                        </div>
+                    </div>
+                </div>
+              </div>
+          </ng-template>
+        </p-carousel>
+
+    </div>
+  </div>
+</body>
