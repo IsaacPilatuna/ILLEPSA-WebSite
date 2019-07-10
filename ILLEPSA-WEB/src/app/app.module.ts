@@ -16,6 +16,7 @@ import { PedidosComponent } from './body/pedidos/pedidos.component';
 import { HeaderAdminComponent } from './header-admin/header-admin.component';
 import { RutaNoEncontradaComponent } from './body/ruta-no-encontrada/ruta-no-encontrada.component';
 import { HistoriaComponent } from './body/historia/historia.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { HistoriaComponent } from './body/historia/historia.component';
     PedidosComponent,
     HeaderAdminComponent,
     RutaNoEncontradaComponent,
-    HistoriaComponent
+    HistoriaComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

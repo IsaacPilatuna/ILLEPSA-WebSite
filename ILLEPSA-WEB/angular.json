@@ -27,7 +27,8 @@
               "src/assets/bootstrap/css/bootstrap-grid.css",
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {

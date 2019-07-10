@@ -8,6 +8,7 @@ import { ProductosComponent } from './body/productos/productos.component';
 import { SociosComponent } from './body/socios/socios.component';
 import { RutaNoEncontradaComponent } from './body/ruta-no-encontrada/ruta-no-encontrada.component';
 import { HistoriaComponent } from './body/historia/historia.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   
@@ -38,6 +39,10 @@ const routes: Routes = [
   {
      path: 'socios',
      component: SociosComponent
+  },
+  {
+     path: 'login',
+     component: LoginComponent
   },
   {
      path: 'pedidos',

@@ -1,3 +1,58 @@
-<p>
-  socios works!
-</p>
+<body>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h1 style="text-align: center">
+        Socios
+      </h1>
+    </div>
+    <!--PROVEEDORES-->
+    <div class="panel-body">
+      <p-carousel headerText="Proveedores" [value]="proveedores" numVisible="2" >
+        <ng-template let-proveedor pTemplate="item">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 style="text-align: center; font-weight: bold">{{proveedor.nombre}}</h4>
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-6">
+                      <div class="text-center">
+                          <img src="assets/images/socios/{{proveedor.imagen}}" height="200px" >
+                      </div>
+                  </div>
+                  <div class="col-md-6" >
+                      <p >{{proveedor.descripcion}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </ng-template>
+      </p-carousel>
+      <br>
+      <br>
+      <!--DISTRIBUIDORES-->
+      <p-carousel headerText="Distribuidores" [value]="distribuidores" numVisible="2">
+          <ng-template let-distribuidor pTemplate="item">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 style="text-align: center; font-weight: bold">{{distribuidor.nombre}}</h4>
+                </div>
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-md-6">
+                        <div class="text-center">
+                            <img src="assets/images/socios/{{distribuidor.imagen}}" height="200px" >
+                        </div>
+                    </div>
+                    <div class="col-md-6" >
+                        <p >{{distribuidor.descripcion}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </ng-template>
+        </p-carousel>
+
+    </div>
+  </div>
+</body>

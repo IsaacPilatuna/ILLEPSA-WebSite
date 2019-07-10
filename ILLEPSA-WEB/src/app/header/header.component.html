@@ -42,16 +42,28 @@
           <h4>Contactos</h4>
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="userLogin">
         <a class="nav-link btn btn-outline-success" routerLink="/pedidos">
           <i class="pi pi-shopping-cart" style="font-size: 3em"></i>
           <h4>Pedidos</h4>
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="userLogin">
         <a class="nav-link btn btn-outline-success" routerLink="/cuenta">
           <i class="pi pi-user" style="font-size: 3em"></i>
           <h4>Mi cuenta</h4>
+        </a>
+      </li>
+      <li class="nav-item" *ngIf="!userLogin" (click)="iniciarSesion()">
+        <a class="nav-link btn btn-outline-success" routerLink="/login">
+          <i class="pi pi-sign-in" style="font-size: 3em"></i>
+          <h4>Iniciar sesión</h4>
+        </a>
+      </li>
+      <li class="nav-item" *ngIf="userLogin" (click)="cerrarSesion()">
+        <a class="nav-link btn btn-outline-danger" href="#">
+          <i class="pi pi-sign-out" style="font-size: 3em"></i>
+          <h4>Cerrar sesión</h4>
         </a>
       </li>
     </ul>
