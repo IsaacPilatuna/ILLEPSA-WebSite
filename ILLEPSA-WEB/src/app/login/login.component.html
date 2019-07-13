@@ -18,14 +18,14 @@
               <form action="">
                 <div class="form-group">
                   <label for="emailLoginInput">E-mail:</label>
-                  <input type="email" class="form-control" id="emailLoginInput" placeholder="E-mail">
+                  <input type="email" class="form-control" id="emailLoginInput" name="emailLoginInput" placeholder="E-mail" [(ngModel)]="emailLoginInput">
                 </div>
                 <div class="form-group">
                   <label for="passwordLoginInput">Contraseña:</label>
-                  <input type="password" class="form-control" id="passwordLoginInput" placeholder="Contraseña">
+                  <input type="password" class="form-control" id="passwordLoginInput" name="passwordLoginInput" placeholder="Contraseña" [(ngModel)]="passwordLoginInput">
                 </div>
                 <div class="text-center">
-                  <button type="button" class="btn btn-default btn-lg">
+                  <button type="button" class="btn btn-default btn-lg" (click)="iniciarSesion()">
                     <i class="pi pi-sign-in" ></i>
                     Iniciar Sesión
                   </button>
@@ -46,26 +46,26 @@
               <form action="">
                 <div class="form-group">
                   <label for="nombreInput">Nombre Completo:</label>
-                  <input type="text" class="form-control" id="nombreInput" placeholder="Nombre completo">
+                  <input type="text" class="form-control" id="nombreInput" placeholder="Nombre completo" name="nombreInput" [(ngModel)]="nombreRegistro">
                 </div>
                 <div class="form-group">
                   <label for="idInput">Identificación:</label>
-                  <input type="text" class="form-control" id="idInput" placeholder="Identificación">
+                  <input type="text" class="form-control" id="idInput" placeholder="Identificación" name="idInput" [(ngModel)]="identificacionRegistro">
                 </div>
                 <div class="form-group">
                   <label for="emailInput">E-mail:</label>
-                  <input type="email" class="form-control" id="emailInput" placeholder="E-mail">
+                  <input type="email" class="form-control" id="emailInput" placeholder="E-mail" name="emailInput" [(ngModel)]="emailRegistro">
                 </div>
                 <div class="form-group">
                   <label for="passwordInput">Contraseña:</label>
-                  <input type="password" class="form-control" id="passwordInput" placeholder="Contraseña">
+                  <input type="password" class="form-control" id="passwordInput" placeholder="Contraseña" name="passwordInput" [(ngModel)]="passwordRegistro">
                 </div>
                 <div class="form-group">
                   <label for="passwordConfirmInput">Confirmar contraseña:</label>
-                  <input type="password" class="form-control" id="passwordConfirmInput" placeholder="Confirmar contraseña">
+                  <input type="password" class="form-control" id="passwordConfirmInput" name="passwordConfirmInput" placeholder="Confirmar contraseña" [(ngModel)]="passwordConfirmRegistro">
                 </div>
                 <div class="text-center">
-                  <button type="button" class="btn btn-default btn-lg">
+                  <button (click)="registrarUsuario()" type="button" class="btn btn-default btn-lg">
                     <i class="pi pi-user-plus" ></i>
                     Registrarse
                   </button>
