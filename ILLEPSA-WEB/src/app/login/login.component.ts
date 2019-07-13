@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginServiceService } from '../servicios/login-service.service';
 import { Router, ActivatedRoute, ParamMap, UrlHandlingStrategy } from '@angular/router';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,6 @@ import { Router, ActivatedRoute, ParamMap, UrlHandlingStrategy } from '@angular/
 })
 export class LoginComponent implements OnInit {
 
-  usuarios=[];
   nombreRegistro:string='';
   identificacionRegistro:string='';
   emailRegistro:string='';
@@ -38,8 +38,7 @@ export class LoginComponent implements OnInit {
       email:this.emailRegistro,
       password:this.passwordRegistro
     };
-    this.usuarios.push(usuario);
-    console.log(this.usuarios);
+    this._loginService.usuarios.push(usuario);
     this.limpiarUsuario();
     alert('Usuario registrado con éxito')
   }
@@ -48,15 +47,20 @@ export class LoginComponent implements OnInit {
     
     const correo = this.emailLoginInput;
     const password=this.passwordLoginInput;
-    const loginService=this._loginService;
-    const router=this._router;
-    this.usuarios.forEach(function (usuario) {
+    this._loginService.usuarios.forEach(usuario => {
       if(usuario.email== correo && usuario.password==password){
-        loginService.loginUsuario=true;
-        router.navigateByUrl('/#');
+        // send message to subscribers via observable subject
+        this._loginService.sendMessage(true);
+        this._router.navigateByUrl('/home');
         
       }
+      
     });
   }
+
+  clearMessage(): void {
+    // clear message
+    this._loginService.clearMessage();
+}
 
 }

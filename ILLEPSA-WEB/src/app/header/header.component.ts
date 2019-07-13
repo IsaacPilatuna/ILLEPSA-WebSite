@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginServiceService } from '../servicios/login-service.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -7,13 +8,21 @@ import { LoginServiceService } from '../servicios/login-service.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  userLogin: boolean=false;
+  subscription: Subscription;
 
-  userLogin=false;
-  constructor(private _loginService:LoginServiceService) { 
-    this.userLogin=_loginService.loginUsuario;
-  }
+  constructor(private loginService: LoginServiceService) {
+    // subscribe to home component userLogins
+    this.subscription = this.loginService.getMessage().subscribe(userLogin => { this.userLogin = userLogin; });
+}
 
   ngOnInit() {
+
+  }
+
+  ngOnDestroy(){
+    // unsubscribe to ensure no memory leaks
+    this.subscription.unsubscribe();
   }
   iniciarSesion(){
     this.userLogin=true;
