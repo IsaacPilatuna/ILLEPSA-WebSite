@@ -19,23 +19,23 @@
               <form action="">
                 <div class="form-group">
                   <label for="nombreInput">Nombre Completo:</label>
-                  <input type="text" class="form-control" id="nombreInput" placeholder="Nombre completo">
+                  <input type="text" class="form-control" id="nombreInput" placeholder="Nombre completo" name="nombreInput" [(ngModel)]="usuario.nombreCompleto" [disabled]="modoEdicion">
                 </div>
                 <div class="form-group">
                   <label for="idInput">Identificación:</label>
-                  <input type="text" class="form-control" id="idInput" placeholder="Identificación">
+                  <input type="text" class="form-control" id="idInput" placeholder="Identificación" name="idInput" [(ngModel)]="usuario.identificacion" [disabled]="modoEdicion">
                 </div>
                 <div class="form-group">
                   <label for="empresaInput">Empresa:</label>
-                  <input type="text" class="form-control" id="empresaInput" placeholder="Empresa">
+                  <input type="text" class="form-control" id="empresaInput" placeholder="Empresa" name="empresaInput" [(ngModel)]="usuario.empresa" [disabled]="modoEdicion">
                 </div>
                 <div class="form-group">
                   <label for="rucInput">RUC:</label>
-                  <input type="text" class="form-control" id="rucInput" placeholder="RUC">
+                  <input type="text" class="form-control" id="rucInput" placeholder="RUC"  name="rucInput" [(ngModel)]="usuario.ruc" [disabled]="modoEdicion">
                 </div>
                 <div class="form-group">
                   <label for="telefonoInput">Teléfono:</label>
-                  <input type="text" class="form-control" id="telefonoInput" placeholder="Telefono">
+                  <input type="text" class="form-control" id="telefonoInput" placeholder="Telefono" name="telefonoInput" [(ngModel)]="usuario.telefono" [disabled]="modoEdicion">
                 </div>
               </form>
             </div>
@@ -53,15 +53,15 @@
               <form action="">
                 <div class="form-group">
                   <label for="provinciaInput">Provincia:</label>
-                  <input type="text" class="form-control" id="provinciaInput" placeholder="Provincia">
+                  <input type="text" class="form-control" id="provinciaInput" placeholder="Provincia" name="provinciaInput" [(ngModel)]="usuario.datosEnvio.provincia" [disabled]="modoEdicion">
                 </div>
                 <div class="form-group">
                   <label for="ciudadInput">Ciudad:</label>
-                  <input type="text" class="form-control" id="ciudadInput" placeholder="Ciudad">
+                  <input type="text" class="form-control" id="ciudadInput" placeholder="Ciudad" name="ciudadInput" [(ngModel)]="usuario.datosEnvio.ciudad" [disabled]="modoEdicion">
                 </div>
                 <div class="form-group">
                   <label for="direccionInput">Dirección:</label>
-                  <textarea type="text" class="form-control" id="direccionInput" rows="3" placeholder="Calle principal, número de calle y Calle secundaria"></textarea>
+                  <textarea type="text" class="form-control" id="direccionInput" rows="3" name="direccionInput" placeholder="Calle principal, número de calle y Calle secundaria" [(ngModel)]="usuario.datosEnvio.direccion" [disabled]="modoEdicion"></textarea>
                 </div>
               </form>
             </div>
@@ -72,14 +72,14 @@
     </div>
     <div class="panel-footer">
       <div class="text-center">
-        <button type="button" class="btn btn-default btn-lg">
-          <i class="pi pi-pencil" ></i>
-          Editar Datos
-        </button>
-        <button type="button" class="btn btn-default btn-lg">
-          <i class="pi pi-save" ></i>
-          Guardar Datos
-        </button>
+            <button type="button" class="btn btn-default btn-lg" (click)="editarDatos()" *ngIf="modoEdicion" >
+              <i class="pi pi-pencil" ></i>
+              Editar Datos
+            </button>
+            <button type="button" class="btn btn-default btn-lg" (click)="guardarDatos()" *ngIf="!modoEdicion">
+              <i class="pi pi-save" ></i>
+              Guardar Datos
+            </button>
       </div>
     </div>
   </div>

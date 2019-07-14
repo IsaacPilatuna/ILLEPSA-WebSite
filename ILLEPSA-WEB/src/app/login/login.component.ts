@@ -36,7 +36,15 @@ export class LoginComponent implements OnInit {
       nombreCompleto:this.nombreRegistro,
       identificacion:this.identificacionRegistro,
       email:this.emailRegistro,
-      password:this.passwordRegistro
+      password:this.passwordRegistro,
+      empresa:'',
+      ruc:'',
+      telefono:'',
+      datosEnvio:{
+        provincia:'',
+        ciudad:'',
+        direccion:''
+      }
     };
     this._loginService.usuarios.push(usuario);
     this.limpiarUsuario();
@@ -50,7 +58,9 @@ export class LoginComponent implements OnInit {
     this._loginService.usuarios.forEach(usuario => {
       if(usuario.email== correo && usuario.password==password){
         // send message to subscribers via observable subject
+        alert('Inicio de sesión exitoso');
         this._loginService.sendMessage(true);
+        this._loginService.usuarioLogeado=usuario;
         this._router.navigateByUrl('/home');
         
       }

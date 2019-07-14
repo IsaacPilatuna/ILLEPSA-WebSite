@@ -7,6 +7,7 @@ import { Subject, Observable } from 'rxjs';
 export class LoginServiceService {
   private subject = new Subject<any>();
   usuarios=[];
+  usuarioLogeado:any;
 
     sendMessage(message: boolean) {
         this.subject.next(message);
