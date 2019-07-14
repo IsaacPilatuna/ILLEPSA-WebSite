@@ -1,3 +1,117 @@
 <body>
-  Pedidos Works!
+  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h1 style="text-align: center">
+          Pedidos
+        </h1>
+    </div>
+    <div class="panel-body">
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+              <h2 style="text-align: center">
+                  <i class="pi pi-shopping-cart" ></i>
+                  Productos
+              </h2>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <table class="table table-striped" style="margin: 10px">
+                  <thead class="thead-dark">
+                    <tr >
+                      <th >Producto</th>
+                      <th >Precio </th>
+                      <th >Agregar</th>
+            
+            
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="active" *ngFor="let producto of productos">
+                      <td> {{producto.nombre}}</td>
+                      <td >{{producto.precio}}</td>
+                      <td >
+                        <button class="btn btn-success" (click)="agregarProducto(producto.nombre,producto.precio)">+1</button>
+                      </td>
+                    </tr>
+            
+                  </tbody>
+                </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          
+        <div class="panel-heading">
+            <h2 style="text-align: center">
+                <i class="pi pi-dollar" ></i>
+                Factura
+            </h2>
+        </div>
+        <div class="panel-body">
+            <div class="form">
+              <div class="form-group">
+                <label for="nombreInput">Nombre Completo:</label>
+                <input type="text" class="form-control" id="nombreInput" placeholder="Nombre completo" name="nombreInput" [(ngModel)]="usuario.nombreCompleto" disabled="true">
+              </div>
+              <div class="form-group">
+                <label for="idInput">Identificación:</label>
+                <input type="text" class="form-control" id="idInput" placeholder="Identificación" name="idInput" [(ngModel)]="usuario.identificacion" disabled="true">
+              </div>
+              <div class="form-group">
+                <label for="empresaInput">Empresa:</label>
+                <input type="text" class="form-control" id="empresaInput" placeholder="Empresa" name="empresaInput" [(ngModel)]="usuario.empresa" disabled="true">
+              </div>
+              <div class="form-group">
+                <label for="rucInput">RUC:</label>
+                <input type="text" class="form-control" id="rucInput" placeholder="RUC"  name="rucInput" [(ngModel)]="usuario.ruc" disabled="true">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12">
+
+                  <table class="table table-striped" >
+                      <thead class="thead-dark">
+                        <tr >
+                          <th >Producto</th>
+                          <th>Cantidad</th>
+                          <th>Valor U.</th>
+                          <th>Valor T.</th>
+                          <th>Quitar</th>
+                
+                
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="active" *ngFor="let producto of productosAgregados">
+                          <td >{{producto.nombre}}</td>
+                          <td >{{producto.cantidad}}</td>
+                          <td >{{producto.precio}}</td>
+                          <td >{{producto.precioTotal}}</td>
+                          <td >
+                            <button class="btn btn-danger" (click)="restarProducto(producto.nombre,producto.precio)">-1</button>
+                          </td>
+                        </tr>
+                
+                      </tbody>
+                    </table>
+              </div>
+              
+            </div>
+        </div>
+        <br>
+        <h3 class="text-center">Total: $ {{total}} </h3>
+        <div class="text-center">
+          <button class="btn btn-default btn-lg" (click)="completarCompra()">
+            <i class="pi pi-shopping-cart" ></i>
+            Completar compra
+          </button>
+        </div>
+        <br>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>

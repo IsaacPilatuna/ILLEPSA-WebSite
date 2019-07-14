@@ -1,5 +1,73 @@
 <body>
-  <p>
-    Home XD!
-  </p>
-</body>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h1 style="text-align: center">
+          Bienvenido
+        </h1>
+      </div>
+      <div class="panel-body">
+        <!--OFERTAS-->
+        <p-carousel headerText="Ofertas" [value]="ofertas">
+          <ng-template let-oferta pTemplate="item">
+              <div class="panel panel-default">
+                <div class="panel-heading bg-success text-white">
+                  <h4 style="text-align: center; font-weight: bold">{{oferta.nombre}}</h4>
+                </div>
+                <div class="panel-body">
+                  <div class="text-center">
+                      <img src="assets/images/oferta.png" height="100px" style="position: absolute;z-index: 1;">
+                      <img src="assets/images/productos/{{oferta.imagen}}" height="200px">
+                  </div>
+                  <br>
+                    <div class="row">
+                        <div class="col-md-6">
+                          <p class="text-right"> <strong> Precio Regular:</strong></p>
+                        </div>
+                        <div class="col-md-6">
+                          <p style="text-decoration: line-through">$ {{oferta.precio}}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                          <p class="text-right"> <strong> Precio Oferta:</strong></p>
+                        </div>
+                        <div class="col-md-6">
+                          <p>$ {{oferta.precio*0.8}}</p>
+                        </div>
+                    </div>
+                </div>
+              </div>
+          </ng-template>
+        </p-carousel>
+        <br>
+        <br>
+        <!--PRODUCTOS NUEVOS-->
+        <p-carousel headerText="Productos Nuevos" [value]="nuevos">
+            <ng-template let-nuevo pTemplate="item">
+                <div class="panel panel-default">
+                  <div class="panel-heading bg-info text-white">
+                    <h4 style="text-align: center; font-weight: bold">{{nuevo.nombre}}</h4>
+                  </div>
+                  <div class="panel-body">
+                    <div class="text-center" style="position: relative;">
+                        <img src="assets/images/nuevo-2.png" height="200px" style="position: absolute;z-index: 1;">
+                        <img src="assets/images/productos/{{nuevo.imagen}}" height="200px" >
+                    </div>
+                    <br>
+                      <div class="row">
+                          <div class="col-md-6">
+                            <p class="text-right"> <strong> Precio:</strong></p>
+                          </div>
+                          <div class="col-md-6">
+                            <p>$ {{nuevo.precio}}</p>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+            </ng-template>
+          </p-carousel>
+  
+      </div>
+    </div>
+  </body>

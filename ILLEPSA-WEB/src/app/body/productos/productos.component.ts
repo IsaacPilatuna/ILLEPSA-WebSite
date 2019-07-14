@@ -31,8 +31,4 @@ export class ProductosComponent implements OnInit {
 
     constructor() {
     }
-
-    selectCar(car) {
-     //   this.messageService.add({severity: 'info', summary: 'Car Selected', detail: 'Vin:' + car.vin});
-    }
 }
