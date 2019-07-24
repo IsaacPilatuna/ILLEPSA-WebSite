@@ -21,6 +21,8 @@ import { RutaNoEncontradaComponent } from './body/ruta-no-encontrada/ruta-no-enc
 import { HistoriaComponent } from './body/historia/historia.component';
 import { LoginComponent } from './login/login.component';
 import { LoginServiceService } from './servicios/login-service.service';
+import {UsuarioService} from './servicios/usuario.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -45,9 +47,10 @@ import { LoginServiceService } from './servicios/login-service.service';
     CarouselModule,
     DialogModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [LoginServiceService,LoginComponent],
+  providers: [LoginServiceService, LoginComponent, UsuarioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

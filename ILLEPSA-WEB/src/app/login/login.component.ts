@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginServiceService } from '../servicios/login-service.service';
 import { Router, ActivatedRoute, ParamMap, UrlHandlingStrategy } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
+import {UsuarioService} from "../servicios/usuario.service";
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { HeaderComponent } from '../header/header.component';
 })
 export class LoginComponent implements OnInit {
 
-  nombreRegistro:string='';
+  nombreRegistro: string='';
   identificacionRegistro:string='';
   emailRegistro:string='';
   passwordRegistro:string='';
@@ -19,7 +20,10 @@ export class LoginComponent implements OnInit {
   emailLoginInput:string='';
   passwordLoginInput:string='';
 
-  constructor(private _loginService:LoginServiceService, private _router:Router) { }
+  constructor(
+    private _usuarioService: UsuarioService,
+    private _loginService: LoginServiceService,
+    private _router:Router) { }
 
   ngOnInit() {
   }
@@ -46,7 +50,17 @@ export class LoginComponent implements OnInit {
         direccion:''
       }
     };
-    this._loginService.usuarios.push(usuario);
+
+    const nuevoUsuario = {
+      nombreCompleto: this.nombreRegistro
+    }
+    // this._loginService.usuarios.push(usuario);
+    this._usuarioService.crear(nuevoUsuario).subscribe(usuarioCreado => {
+      console.log('Usuario creado?', usuarioCreado);
+    }, error => {
+      console.error('Ha surgido un error durante la creación del usuario');
+    });
+
     this.limpiarUsuario();
     alert('Usuario registrado con éxito')
   }
