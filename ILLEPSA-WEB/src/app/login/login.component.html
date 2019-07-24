@@ -46,23 +46,23 @@
               <form action="">
                 <div class="form-group">
                   <label for="nombreInput">Nombre Completo:</label>
-                  <input type="text" class="form-control" id="nombreInput" placeholder="Nombre completo" name="nombreInput" [(ngModel)]="nombreRegistro">
+                  <input type="text" class="form-control" id="nombreInput" placeholder="Nombre completo" name="nombreInput" [(ngModel)]="nombreRegistro" required>
                 </div>
                 <div class="form-group">
                   <label for="idInput">Identificación:</label>
-                  <input type="text" class="form-control" id="idInput" placeholder="Identificación" name="idInput" [(ngModel)]="identificacionRegistro">
+                  <input type="text" class="form-control" id="idInput" placeholder="Identificación" name="idInput" [(ngModel)]="identificacionRegistro" required>
                 </div>
                 <div class="form-group">
                   <label for="emailInput">E-mail:</label>
-                  <input type="email" class="form-control" id="emailInput" placeholder="E-mail" name="emailInput" [(ngModel)]="emailRegistro">
+                  <input type="email" class="form-control" id="emailInput" placeholder="E-mail" name="emailInput" [(ngModel)]="emailRegistro" required>
                 </div>
                 <div class="form-group">
                   <label for="passwordInput">Contraseña:</label>
-                  <input type="password" class="form-control" id="passwordInput" placeholder="Contraseña" name="passwordInput" [(ngModel)]="passwordRegistro">
+                  <input type="password" class="form-control" id="passwordInput" placeholder="Contraseña" name="passwordInput" [(ngModel)]="passwordRegistro" required>
                 </div>
                 <div class="form-group">
                   <label for="passwordConfirmInput">Confirmar contraseña:</label>
-                  <input type="password" class="form-control" id="passwordConfirmInput" name="passwordConfirmInput" placeholder="Confirmar contraseña" [(ngModel)]="passwordConfirmRegistro">
+                  <input type="password" class="form-control" id="passwordConfirmInput" name="passwordConfirmInput" placeholder="Confirmar contraseña" [(ngModel)]="passwordConfirmRegistro" required>
                 </div>
                 <div class="text-center">
                   <button (click)="registrarUsuario()" type="button" class="btn btn-default btn-lg">

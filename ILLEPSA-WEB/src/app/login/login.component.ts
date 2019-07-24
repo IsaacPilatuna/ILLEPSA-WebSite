@@ -31,7 +31,14 @@ export class LoginComponent implements OnInit {
     this.passwordRegistro='';
     this.passwordConfirmRegistro='';
   }
+
+  limpiarPassword(){
+    this.passwordRegistro='';
+    this.passwordConfirmRegistro='';
+  }
+
   registrarUsuario(){
+
     const usuario = {
       nombreCompleto:this.nombreRegistro,
       identificacion:this.identificacionRegistro,
@@ -46,18 +53,50 @@ export class LoginComponent implements OnInit {
         direccion:''
       }
     };
-    this._loginService.usuarios.push(usuario);
-    this.limpiarUsuario();
-    alert('Usuario registrado con éxito')
+    
+    if(!this.comprobarUsuarioVacio()){
+      if (!this.comprobarPassword()){
+        this.limpiarPassword();
+        alert('Las contraseñas no coinciden')
+      }else{
+        this._loginService.usuarios.push(usuario);
+        this.limpiarUsuario();
+        alert('Usuario registrado con éxito')
+      }
+    }
+
+  }
+
+  comprobarPassword(){
+
+    const password = this.passwordRegistro;
+    const passwordConfirm = this.passwordConfirmRegistro;
+
+    if (password === passwordConfirm){
+      return true
+    }
+
+  }
+
+  comprobarUsuarioVacio(){
+    if(this.nombreRegistro == "" || this.identificacionRegistro=="" || this.emailRegistro=="" || this.passwordRegistro=="" || this.passwordConfirmRegistro==""){
+      alert("Ingrese todos los datos solicitados")
+      return true;
+    }
+
+    return false;
+    
   }
 
   iniciarSesion(){
     
     const correo = this.emailLoginInput;
     const password=this.passwordLoginInput;
+    var usuarioEncontrado = false;
     this._loginService.usuarios.forEach(usuario => {
       if(usuario.email== correo && usuario.password==password){
         // send message to subscribers via observable subject
+        usuarioEncontrado = true;
         alert('Inicio de sesión exitoso');
         this._loginService.sendMessage(true);
         this._loginService.usuarioLogeado=usuario;
@@ -66,6 +105,9 @@ export class LoginComponent implements OnInit {
       }
       
     });
+    if(!usuarioEncontrado){
+      alert('Credenciales Incorrectas');
+    }
   }
 
   clearMessage(): void {
