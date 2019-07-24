@@ -11,10 +11,10 @@ export class UsuarioEntity{
     nombreCompleto: string
 
     @Column({type: 'varchar', name: 'empresa'})
-    empresa: string
+    empresa?: string
 
     @Column({type: 'varchar', name: 'ruc', unique: true})
-    ruc: number
+    ruc?: number
 
     @Column({type: 'varchar', name: 'usuario_password', default: 1234})
     password?: string
