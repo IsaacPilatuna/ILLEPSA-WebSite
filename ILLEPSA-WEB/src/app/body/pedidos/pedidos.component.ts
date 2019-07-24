@@ -134,7 +134,7 @@ export class PedidosComponent implements OnInit {
       startY: 120
     });
 
-    factura.save('prueba.pdf');
+    factura.save('factura.pdf');
   }
 
 }
