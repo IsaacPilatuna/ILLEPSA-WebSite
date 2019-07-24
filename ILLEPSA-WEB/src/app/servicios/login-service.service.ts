@@ -6,7 +6,7 @@ import { Producto } from "../interfaces/Producto";
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class LoginServiceService {
 
   BASE_URL: string = 'http://localhost:3000';
 
