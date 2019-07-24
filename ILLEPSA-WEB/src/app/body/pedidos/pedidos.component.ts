@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 import { LoginServiceService } from 'src/app/servicios/login-service.service';
 
 @Component({
@@ -8,7 +10,7 @@ import { LoginServiceService } from 'src/app/servicios/login-service.service';
 })
 export class PedidosComponent implements OnInit {
 
-  constructor(private readonly _loginService:LoginServiceService) { }
+  constructor(private _loginService: LoginServiceService) { }
   usuario={
     nombreCompleto:'Isaac Salomón Pilatuña Zambrano',
     identificacion:'1723744445',
@@ -33,6 +35,8 @@ export class PedidosComponent implements OnInit {
 
   productosAgregados=[
   ]
+
+  mostrarColumnaQuitar: boolean;
   
   ngOnInit() {
     this.usuario=this._loginService.usuarioLogeado;
@@ -93,6 +97,44 @@ export class PedidosComponent implements OnInit {
     alert('Compra completada exitosamente');
     this.productosAgregados=[];
     this.total=0;
+  }
+
+  descargarPDF() {
+    let factura = new jsPDF();
+    factura.setFontSize(30)
+    factura.text(10, 20, 'FACTURA')
+
+    factura.setFontSize(15)
+    factura.setFontType('bold')
+    factura.text(10, 40, 'Datos del usuario:')
+
+    factura.setFontSize(10)
+    factura.setFontType('bold')
+    factura.text(10, 50, 'Nombre completo: ')
+    factura.text(10, 60, 'Identificación: ')
+    factura.text(10, 70, 'Empresa: ')
+    factura.text(10, 80, 'RUC: ')
+
+    factura.setFontType('normal')
+    factura.text(50, 50, this.usuario.nombreCompleto)
+    factura.text(40, 60, this.usuario.identificacion)
+    factura.text(30, 70, this.usuario.empresa)
+    factura.text(20, 80, this.usuario.ruc)
+
+    factura.setFontSize(15)
+    factura.setFontType('bold')
+    factura.text(10, 100, 'Total:')
+
+    factura.setFontSize(15)
+    factura.setFontType('normal')
+    factura.text(25, 100, `$ ${this.total.toString()}`)
+
+    factura.autoTable({
+      html: '#tabla',
+      startY: 120
+    });
+
+    factura.save('prueba.pdf');
   }
 
 }
