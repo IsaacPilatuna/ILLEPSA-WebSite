@@ -1,48 +1,25 @@
 import {Entity, PrimaryGeneratedColumn, Column, JoinTable, OneToMany} from "typeorm";
-import { ProductoEntity } from "src/productos/producto.entity";
+import {ProductoEntity} from '../productos/producto.entity';
 
 @Entity()
 export class UsuarioEntity{
-    
+
     @PrimaryGeneratedColumn()
-    idUsuario?: string;
+    id?: number
 
-    @Column(
-        {
-            type:"varchar",length:45,
-            name:'nombreCompleto'
-        }
-    )
-    nombreCompleto: string;
+    @Column({type: 'varchar', name: 'nombre_completo'})
+    nombreCompleto: string
 
-    @Column(
-        {
-            type:'varchar',length:45,
-            name:'empresa'
-        }
-    )
-    empresa: string;
+    @Column({type: 'varchar', name: 'empresa'})
+    empresa: string
 
-    @Column(
-        {
-            type:'varchar',
-            length:13,
-            name:'ruc'
-        }
-    )
-    ruc: string;
+    @Column({type: 'varchar', name: 'ruc', unique: true})
+    ruc: number
 
-    @Column(
-        {
-            type:'varchar',
-            length:45,
-            name:'pass'
-        }
-    )
-    pass: string;
-
+    @Column({type: 'varchar', name: 'usuario_password', default: 1234})
+    password?: string
 
     @OneToMany(type=>ProductoEntity,producto=>producto.usuario)
-    producto:ProductoEntity
+    producto?:ProductoEntity
     
 }
