@@ -15,7 +15,7 @@ import {ProductoEntity} from './productos/producto.entity';
       name: 'default',
       type:'mysql',
       host:'localhost',
-      port:32769,
+      port:3306,
       username: 'fernando',
       password:'hc45924682',
       database: 'proyecto',

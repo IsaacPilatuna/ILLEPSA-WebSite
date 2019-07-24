@@ -8,7 +8,7 @@ import { Producto } from "../interfaces/Producto";
 })
 export class LoginServiceService {
 
-  BASE_URL: string = 'http://localhost:3000';
+  /*BASE_URL: string = 'http://localhost:3000';
 
   constructor(private http: HttpClient){
 
@@ -22,7 +22,7 @@ export class LoginServiceService {
     return this.http.get<Producto>(`${this.BASE_URL}/producto/${id}`);
   }
 
-  crerProducto(producto: Producto):Observable<Producto>{
+  crearProducto(producto: Producto):Observable<Producto>{
     return this.http.post<Producto>(`${this.BASE_URL}/producto/create`,producto);
   }
 
@@ -32,7 +32,7 @@ export class LoginServiceService {
 
   updateProducto(id:string,producto:Producto):Observable<Producto>{
     return this.http.put<Producto>(`${this.BASE_URL}/producto/update?productoID=${id}`,producto)
-  }
+  }*/
 
   private subject = new Subject<any>();
   usuarios=[];
