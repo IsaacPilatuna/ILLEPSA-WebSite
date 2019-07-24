@@ -25,13 +25,12 @@ export class UsuarioEntity{
 
     @Column(
         {
-            type:'decimal',
-            length:'13',
-            scale:2,
+            type:'varchar',
+            length:13,
             name:'ruc'
         }
     )
-    ruc: number;
+    ruc: string;
 
 
     @OneToMany(type=>ProductoEntity,producto=>producto.usuario)
