@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginServiceService } from "../../servicios/login-service.service";
 
 @Component({
   selector: 'app-productos',

@@ -20,6 +20,7 @@ import { HeaderAdminComponent } from './header-admin/header-admin.component';
 import { RutaNoEncontradaComponent } from './body/ruta-no-encontrada/ruta-no-encontrada.component';
 import { HistoriaComponent } from './body/historia/historia.component';
 import { LoginComponent } from './login/login.component';
+import { LoginServiceService } from './servicios/login-service.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import { LoginComponent } from './login/login.component';
     BrowserAnimationsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [LoginServiceService,LoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

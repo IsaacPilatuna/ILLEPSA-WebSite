@@ -5,7 +5,7 @@ import { UsuarioEntity } from "src/usuarios/usuario.entity";
 export class ProductoEntity{
     
     @PrimaryGeneratedColumn()
-    iProducto?: string;
+    idProducto?: string;
 
     @Column(
         {
