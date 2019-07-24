@@ -32,6 +32,15 @@ export class UsuarioEntity{
     )
     ruc: string;
 
+    @Column(
+        {
+            type:'varchar',
+            length:45,
+            name:'pass'
+        }
+    )
+    pass: string;
+
 
     @OneToMany(type=>ProductoEntity,producto=>producto.usuario)
     producto:ProductoEntity
