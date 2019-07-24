@@ -1,5 +1,5 @@
 import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, ManyToMany, JoinTable} from "typeorm";
-import { UsuarioEntity } from "src/usuarios/usuario.entity";
+import {UsuarioEntity} from "../usuarios/usuario.entity";
 
 @Entity()
 export class ProductoEntity{
@@ -26,5 +26,5 @@ export class ProductoEntity{
 
 
     @ManyToOne(type=>UsuarioEntity,usuario => usuario.producto)
-    usuario:UsuarioEntity;
+    usuario?:UsuarioEntity;
 }

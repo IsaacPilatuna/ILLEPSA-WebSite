@@ -5,7 +5,7 @@ import { UsuarioModule } from './usuarios/usuario.module';
 import { ProductoModule } from './productos/producto.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsuarioEntity } from './usuarios/usuario.entity';
-import { ProductoEntity } from './productos/producto.entity';
+import {ProductoEntity} from './productos/producto.entity';
 
 @Module({
   imports: [
@@ -15,11 +15,11 @@ import { ProductoEntity } from './productos/producto.entity';
       name: 'default',
       type:'mysql',
       host:'localhost',
-      port:3306,
+      port:32769,
       username: 'fernando',
       password:'hc45924682',
       database: 'proyecto',
-      entities:[UsuarioEntity,ProductoEntity],
+      entities:[UsuarioEntity, ProductoEntity],
       synchronize:true
     })
   ],
