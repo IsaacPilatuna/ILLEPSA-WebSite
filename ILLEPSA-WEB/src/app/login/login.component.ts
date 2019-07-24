@@ -93,19 +93,22 @@ export class LoginComponent implements OnInit {
     const correo = this.emailLoginInput;
     const password=this.passwordLoginInput;
     var usuarioEncontrado = false;
+    var passwordCorrecto = false;
     this._loginService.usuarios.forEach(usuario => {
-      if(usuario.email== correo && usuario.password==password){
-        // send message to subscribers via observable subject
+      if(usuario.email== correo){
         usuarioEncontrado = true;
-        alert('Inicio de sesión exitoso');
-        this._loginService.sendMessage(true);
-        this._loginService.usuarioLogeado=usuario;
-        this._router.navigateByUrl('/home');
-        
-      }
+        if(usuario.password==password){
+          // send message to subscribers via observable subject
+          passwordCorrecto = true;
+          alert('Inicio de sesión exitoso');
+          this._loginService.sendMessage(true);
+          this._loginService.usuarioLogeado=usuario;
+          this._router.navigateByUrl('/home');
+        }
+      } 
       
     });
-    if(!usuarioEncontrado){
+    if(!usuarioEncontrado || !passwordCorrecto){
       alert('Credenciales Incorrectas');
     }
   }
