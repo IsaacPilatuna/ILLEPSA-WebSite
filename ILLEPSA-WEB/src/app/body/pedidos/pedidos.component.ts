@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginServiceService } from 'src/app/servicios/login-service.service';
 
 @Component({
   selector: 'app-pedidos',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PedidosComponent implements OnInit {
 
-  constructor() { }
+  constructor(private readonly _loginService:LoginServiceService) { }
   usuario={
     nombreCompleto:'Isaac Salomón Pilatuña Zambrano',
     identificacion:'1723744445',
@@ -34,6 +35,7 @@ export class PedidosComponent implements OnInit {
   ]
   
   ngOnInit() {
+    this.usuario=this._loginService.usuarioLogeado;
   }
 
   agregarProducto(nombre:string,precio:number){
