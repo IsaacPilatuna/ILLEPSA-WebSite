@@ -43,16 +43,21 @@ export class LoginComponent implements OnInit {
       password:this.passwordRegistro,
       empresa:'',
       ruc:'',
-      telefono:'',
-      datosEnvio:{
+      //telefono:'',
+      /*datosEnvio:{
         provincia:'',
         ciudad:'',
         direccion:''
-      }
+      }*/
     };
 
     const nuevoUsuario = {
-      nombreCompleto: this.nombreRegistro
+      nombreCompleto: this.nombreRegistro,
+      identificacion:this.identificacionRegistro,
+      email:this.emailRegistro,
+      password:this.passwordRegistro,
+      empresa:'',
+      ruc:'',
     }
     // this._loginService.usuarios.push(usuario);
     this._usuarioService.crear(nuevoUsuario).subscribe(usuarioCreado => {

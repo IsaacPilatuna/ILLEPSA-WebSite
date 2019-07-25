@@ -1,7 +1,9 @@
 export interface UsuarioInterface  {
-  id?: number;
+  id?: string;
   nombreCompleto?: string;
   empresa?: string;
+  email?:string;
+  password?:string;
   ruc?: number | string;
-  producto?: string;
+  //producto?: string;
 }

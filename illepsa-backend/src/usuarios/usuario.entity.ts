@@ -13,11 +13,14 @@ export class UsuarioEntity{
     @Column({type: 'varchar', name: 'empresa'})
     empresa?: string
 
-    @Column({type: 'varchar', name: 'ruc', unique: true})
-    ruc?: number
-
+    @Column({type:'varchar', name:'email' })
+    email?: string
+    
     @Column({type: 'varchar', name: 'usuario_password', default: 1234})
     password?: string
+
+    @Column({type: 'varchar', name: 'ruc', unique: true})
+    ruc?: number
 
     @OneToMany(type=>ProductoEntity,producto=>producto.usuario)
     producto?:ProductoEntity

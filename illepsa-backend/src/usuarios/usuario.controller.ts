@@ -11,27 +11,27 @@ export class UsuarioController {
 
     constructor(private readonly _usuarioService: UsuarioService) {}
 
-    @Get('obtenerTodos')
+    @Get('usuario/obtenerTodos')
     async obtenerTodos(
         @Query() objetosPaginacion: paginacion): Promise<UsuarioEntity[]>  {
         return await this._usuarioService.obtenerTodos(objetosPaginacion.skip, objetosPaginacion.limite)
     }
 
 
-    @Get(':id')
+    @Get('usuario/:id')
     async obternPorId(
         @Param('id') id): Promise<UsuarioEntity> {
         return await this._usuarioService.obternPorId(id)
     }
 
 
-    @Post('crear')
+    @Post('usuario/crear')
     async crear(
         @Body() nuevoUsuario): Promise<UsuarioEntity> {
         return await this._usuarioService.crear(nuevoUsuario)
     }
 
-    @Post('editar/:id')
+    @Post('usuario/editar/:id')
     async editar(
         @Param() id,
         @Body() usuario: UsuarioDto) {
